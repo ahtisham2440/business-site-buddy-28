@@ -1,0 +1,19 @@
+import { createFileRoute, Link } from '@tanstack/react-router';
+import { ArrowUpRight, Droplets, Pipette, Wrench, ShowerHead, Waves, Settings2 } from 'lucide-react';
+import { ContactBand } from '@/components/site-shell';
+export const Route = createFileRoute('/services')({
+ head:()=>({meta:[{title:'Plumbing Services — Flowline Karachi'},{name:'description',content:'Explore leak repairs, blocked drains, bathroom fittings, pipework, and plumbing maintenance from Flowline in Karachi.'},{property:'og:title',content:'Flowline Services — Small fixes to fresh installations'},{property:'og:description',content:'Practical plumbing care for leaks, drains, fittings, and home maintenance in Karachi.'},{property:'og:type',content:'website'},{name:'twitter:card',content:'summary_large_image'}]}),
+ component:ServicesPage,
+});
+function ServicesPage(){return <>
+ <section className="page-intro"><div className="container"><p className="eyebrow">OUR SERVICES</p><h1>A solution for<br/>the everyday and unexpected.</h1><p>Whether something needs fixing or you’re ready for a change, we’re here to help your home work a little better.</p></div></section>
+ <section className="section"><div className="container"><div className="service-grid">
+ <article className="service-card"><div className="icon-tile"><Droplets/></div><h3>Leaks & repairs</h3><p>Help with dripping taps, leaking joints, running toilets, and damaged pipes. We look for the cause, not just the visible symptom.</p><Link to="/contact" className="text-link">Discuss a repair <ArrowUpRight size={16}/></Link></article>
+ <article className="service-card"><div className="icon-tile"><Pipette/></div><h3>Drains & blockages</h3><p>Clearing blocked sinks, showers, and household drains. We check the flow and discuss how to help prevent the issue returning.</p><Link to="/contact" className="text-link">Get things flowing <ArrowUpRight size={16}/></Link></article>
+ <article className="service-card"><div className="icon-tile"><Wrench/></div><h3>Fittings & installations</h3><p>Installing and replacing taps, sinks, and other everyday fittings. Neat connections and a careful final check come as standard.</p><Link to="/contact" className="text-link">Plan an installation <ArrowUpRight size={16}/></Link></article>
+ <article className="service-card"><div className="icon-tile"><ShowerHead/></div><h3>Bathroom plumbing</h3><p>Shower fittings, toilets, and bathroom pipework. Talk to us about a simple replacement or the plumbing for your next refresh.</p><Link to="/contact" className="text-link">Talk about your bathroom <ArrowUpRight size={16}/></Link></article>
+ <article className="service-card"><div className="icon-tile"><Waves/></div><h3>Water supply & pipework</h3><p>Investigating water-flow problems and repairing or updating household pipework. Practical advice for dependable everyday use.</p><Link to="/contact" className="text-link">Discuss your pipework <ArrowUpRight size={16}/></Link></article>
+ <article className="service-card"><div className="icon-tile"><Settings2/></div><h3>Everyday maintenance</h3><p>Checking fittings and catching small issues before they become disruptive. A little attention can help keep your home running smoothly.</p><Link to="/contact" className="text-link">Arrange a check <ArrowUpRight size={16}/></Link></article>
+ </div><div className="values-grid"><div><p className="eyebrow">01 / LET’S TALK</p><h3>Tell us what’s happening.</h3><p>Share the problem, your location, and a time that suits you. We’ll discuss the best next step.</p></div><div><p className="eyebrow">02 / A CLEAR PLAN</p><h3>Understand the options.</h3><p>We explain the work and agree the approach with you before picking up our tools.</p></div><div><p className="eyebrow">03 / SORTED WITH CARE</p><h3>Back to your everyday.</h3><p>We carry out the work, check everything, and leave your space tidy.</p></div></div></div></section>
+ <ContactBand/>
+ </>;}
