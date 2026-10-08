@@ -1,24 +1,18 @@
 import { createFileRoute } from "@tanstack/react-router";
-
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+import { Link } from '@tanstack/react-router';
+import { ArrowUpRight, Check, CircleCheck, Clock3, Handshake, ShieldCheck, Wrench, Droplets, Pipette } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { ContactBand } from '@/components/site-shell';
 export const Route = createFileRoute("/")({
+  head: () => ({meta:[{title:'Flowline — Your local plumbing team in Karachi'},{name:'description',content:'Plumbing repairs, installations, and everyday care for homes in Karachi. Get in touch with Flowline.'},{property:'og:title',content:'Flowline — Plumbing with a personal touch'},{property:'og:description',content:'A local approach to plumbing repairs and home care in Karachi.'},{property:'og:type',content:'website'},{name:'twitter:card',content:'summary_large_image'}]}),
   component: Index,
 });
-
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
+ return <>
+  <section className="hero"><img className="hero-photo" src="/images/plumber.jpg" alt="Plumber carefully checking a kitchen faucet" width={1920} height={1024} fetchPriority="high"/><div className="container hero-inner"><div className="hero-copy"><p className="eyebrow"><span>—</span> YOUR HOME. OUR CARE.</p><h1>Good plumbing.<br/><span>Peace of mind.</span></h1><p className="hero-description">From a dripping tap to a fresh installation, we take care of the little things that make a big difference to your home.</p><div className="hero-actions"><Button asChild size="lg"><Link to="/contact">Get in touch <ArrowUpRight/></Link></Button><Button asChild variant="outline" size="lg"><Link to="/services">Explore our services</Link></Button></div><p className="hero-note"><CircleCheck size={14}/> Local people. Honest work. A home well cared for.</p></div></div></section>
+  <section className="trust-strip" aria-label="Our approach"><div className="container trust-grid"><div className="trust-item"><ShieldCheck/><div><h2>Care you can count on</h2><p>Your home is in thoughtful hands</p></div></div><div className="trust-item"><Clock3/><div><h2>Respect for your time</h2><p>Visits planned around your day</p></div></div><div className="trust-item"><Handshake/><div><h2>No unwelcome surprises</h2><p>Clear advice before work begins</p></div></div><div className="trust-item"><Wrench/><div><h2>Made to work well</h2><p>Careful work, down to the details</p></div></div></div></section>
+  <section className="section"><div className="container"><div className="section-heading"><div><p className="eyebrow">WHAT WE DO</p><h2>Small fixes. Fresh starts.<br/>We’re here for both.</h2></div><Link to="/services" className="text-link">View all services <ArrowUpRight size={17}/></Link></div><div className="service-grid"><article className="service-card"><div className="icon-tile"><Droplets/></div><h3>Leaks & repairs</h3><p>Dripping taps, leaking pipes, and the unexpected. Let’s put things right before a small problem becomes a big one.</p><Link to="/services" className="text-link">Find out more <ArrowUpRight size={15}/></Link></article><article className="service-card"><div className="icon-tile"><Pipette/></div><h3>Drains & blockages</h3><p>Slow sinks and stubborn blockages don’t have to disrupt your day. Get your water flowing the way it should.</p><Link to="/services" className="text-link">Find out more <ArrowUpRight size={15}/></Link></article><article className="service-card"><div className="icon-tile"><Wrench/></div><h3>Fittings & installations</h3><p>A new tap, a better shower, or a bathroom refresh. Thoughtful installations that feel right from the start.</p><Link to="/services" className="text-link">Find out more <ArrowUpRight size={15}/></Link></article></div></div></section>
+  <section className="section story-section"><div className="container story-grid"><img className="story-photo" src="/images/plumber.jpg" alt="Careful plumbing work at a kitchen sink" width={1920} height={1024} loading="lazy"/><div className="story-copy"><p className="eyebrow">A LOCAL TEAM. A PERSONAL TOUCH.</p><h2>Not just pipes.<br/>People, too.</h2><p>We believe a good plumbing visit should leave you with more than a working tap. It should leave you feeling listened to, looked after, and comfortable in your home.</p><ul className="check-list"><li><Check/>We listen before we pick up our tools</li><li><Check/>We explain the work in everyday language</li><li><Check/>We treat your space with respect</li></ul><Link to="/about" className="text-link">Get to know Flowline <ArrowUpRight size={17}/></Link></div></div></section>
+  <ContactBand/>
+ </>;
 }
